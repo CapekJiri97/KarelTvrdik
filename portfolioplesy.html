@@ -66,6 +66,46 @@
         </div>
         
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md">
+            <section class="slider-wrapper">
+                <button class="slide-arrow" id="slide-arrow-prev">
+                &#8249;
+                </button>
+                <button class="slide-arrow" id="slide-arrow-next">
+                &#8250;
+                </button>
+                <ul class="slides-container" id="slides-container">
+                <li class="slide">
+                    <iframe src="https://www.youtube.com/embed/rUhNC7sa47I?autoplay=1&mute=1">
+                    </iframe>
+                </li>
+                <li class="slide">
+                    <img class="portf-pic"src="plesy/p1.jpg">
+                </li>
+                <li class="slide"> 
+                    <img class="portf-pic"src="plesy/p20.jpg">
+                </li>
+                <li class="slide"> 
+                    <iframe src="https://www.youtube.com/embed/rUhNC7sa47I?autoplay=1&mute=1">
+                    </iframe>
+                </li>
+                <li class="slide">
+                    <img class="portf-pic"src="plesy/p1.jpg">
+                </li>
+                <li class="slide">
+                    <img class="portf-pic"src="plesy/p1.jpg"></li>
+                <li class="slide">
+                    <img class="portf-pic"src="plesy/p2.jpg"></li>
+
+                </ul>
+            </section>
+            </div>    
+    </div>
+    </div>
+
+    
 
     <div class="container">
         <div class="row"> 
@@ -160,3 +200,20 @@
 
 
 </body>
+
+<script>
+const slidesContainer = document.getElementById("slides-container");
+const slide = document.querySelector(".slide");
+const prevButton = document.getElementById("slide-arrow-prev");
+const nextButton = document.getElementById("slide-arrow-next");
+
+nextButton.addEventListener("click", () => {
+  const slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft += slideWidth;
+});
+
+prevButton.addEventListener("click", () => {
+  const slideWidth = slide.clientWidth;
+  slidesContainer.scrollLeft -= slideWidth;
+});
+</script>
