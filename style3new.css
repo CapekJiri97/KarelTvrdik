@@ -51,7 +51,20 @@ ul{
 }
 
 
+.kontakt_flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 100px;
+  padding-bottom: 250px;
+}
 
+.kontakt_flex p{
+  color: #fff;
+  text-align:center;
+}
 .about_picture{
     width: 100%;
     height: auto;
@@ -77,6 +90,29 @@ h4{
     letter-spacing: 0.72px;
  
 }
+.instagram{
+  display: inline-block;
+
+  background-image: url('ig.png');
+  background-color: #00000000; 
+  background-size: cover; 
+  width: 2rem;
+  height: 2rem;
+  border: none; 
+  cursor: pointer; /* Add a pointer cursor on hover */
+}
+.instagramblack{
+  display: inline-block;
+
+  background-image: url('igblack.png');
+  background-color: #ffffff00;
+  background-size: cover; 
+  width: 2rem;
+  height: 2rem;
+  border: none; 
+  cursor: pointer; /* Add a pointer cursor on hover */
+}
+
 
 .portfoliotile{
 
