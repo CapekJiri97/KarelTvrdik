@@ -59,15 +59,46 @@
 
   <div class="headermid"><h4 class="margin-t-80">sporty</h4></div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3 col-md">
-                <iframe src="https://www.youtube.com/embed/lNSBkpGb_iY?autoplay=0&mute=1">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-md">
+            <section class="slider-wrapper">
+                <button class="slide-arrow" id="slide-arrow-prev">
+
+                </button>
+                <button class="slide-arrow" id="slide-arrow-next">
+                
+                </button>
+                <ul class="slides-container" id="slides-container">
+              
+                <li class="slide"> 
+                    <iframe src="https://www.youtube.com/embed/lNSBkpGb_iY?autoplay=0&mute=1">
+                    </iframe>
+                </li>
+                <li class="slide"> 
+                    <iframe src="https://www.youtube.com/embed/Blq4jVaSM20?autoplay=0&mute=1">
+                    </iframe>
+                </li>
+            </li>
+            <li class="slide"> 
+                <iframe src="https://www.youtube.com/embed/23mM057t-u0?autoplay=0&mute=1">
                 </iframe>
-            </div>
-        </div>
-        
+            </li>
+        </li>
+        <li class="slide"> 
+            <iframe src="https://www.youtube.com/embed/r0wj231Nh_g?autoplay=0&mute=1">
+            </iframe>
+        </li>
+        <li class="slide"> 
+            <iframe src="https://www.youtube.com/embed/WMmLvMJqR4g?autoplay=0&mute=1">
+            </iframe>
+        </li>
+
+                </ul>
+            </section>
+        </div>    
     </div>
+</div>
 
     <div class="container">
         <div class="row"> 
@@ -200,6 +231,22 @@
         </div>
     </div>
 
+    <script>
+        const slidesContainer = document.getElementById("slides-container");
+        const slide = document.querySelector(".slide");
+        const prevButton = document.getElementById("slide-arrow-prev");
+        const nextButton = document.getElementById("slide-arrow-next");
+        
+        nextButton.addEventListener("click", () => {
+          const slideWidth = slide.clientWidth;
+          slidesContainer.scrollLeft += slideWidth;
+        });
+        
+        prevButton.addEventListener("click", () => {
+          const slideWidth = slide.clientWidth;
+          slidesContainer.scrollLeft -= slideWidth;
+        });
+        </script>
 
 
 </body>
