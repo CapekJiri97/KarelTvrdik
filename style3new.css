@@ -1,11 +1,10 @@
 /*
-  změnit font  - jak tluste?
-    dodělat malý carousel, lepší šipky 
-udělat page kontakt
-na stránce klipy velký carousel s klipama
-vyřešit hosting + certifikát
-    stránka svatby - dát místo fotek videa
-    stránka svatby - dodělat horní menu  - rdy
+      vypnout doporučování videí z youtube - rel=0 za url
+      dát do karuselu  šipku v kolečku 
+      video karusel u klipů dát jenom stránku - vypnuto pro desktop
+      vypnout zapínáni videí uplne u všech (krom u tech klipů) - autoplay=0
+  u stránky klipy nechat na pc karusel a na mobil dát ty videa pod sebe
+     odstranit /index.html - na to jsem podle všeho malej pán
 */
 @font-face {
   font-family: 'CY Grotesk';
@@ -383,18 +382,133 @@ ul.nav-links{
   padding: 0.5rem
 }
 
+.desktop_off{
+  display: none;
+}
+
+
+/* CAROUSEL */
+* {
+
+  box-sizing: border-box;
+}
+
+
+.slider-wrapper {
+
+  position: relative;
+  overflow: hidden;
+
+}
+
+.slides-container {
+  /*height: calc(100vh - 2rem); */
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slides-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+/* WebKit */
+.slides-container::-webkit-scrollbar { 
+  width: 0;
+  height: 0;
+}
+.slides-container-klipy {
+/*height: calc(100vh - 2rem); */
+height: fit-content;
+width: 100%;
+display: flex;
+/* flex-direction: column;  - JEN PRO MOBILY - VIZ media queres*/
+overflow: scroll;
+scroll-behavior: smooth;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+
+.slide-arrow {
+  position: absolute;
+  height: 100%;
+  background-color: #00000000;
+  border: none;
+  width: 48px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 250ms;
+
+}
+.arrow-hero{
+  width: 64px;
+
+}
+.slide-arrow:hover {
+  opacity: 0.75;
+}
+
+#slide-arrow-prev {
+  left: 0;
+  background-image: url("arrow2.svg");
+  background-size: 80% 80%; /* Adjust this for the desired size */
+  border-radius: 0 2px 2px 0;
+}
+
+#slide-arrow-next {
+  right: 0;
+  background-image: url("arrow.svg");
+  background-size: 80% 80%; /* Adjust this for the desired size */
+  border-radius: 2px 0 0 2px;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  flex: 1 0 100%;
+}
+
+
+
+footer {
+  padding: 1em;
+  text-align: center;
+  background-color: #FFDFB9;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer .heart {
+  color: #DC143C;
+}
+
 /* APPLYING MEDIA QUERIES */
 @media (max-width: 768px) {
  .menu {
     display:none;
     position: absolute;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 10%, rgba(0, 0, 0, 0.45) 45%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 1%, rgba(0, 0, 0, 0.85) 75%);
     right: 0;
     left: 0;
     text-align: center;
-    padding: 16px 0;
+    top: 0;
+    padding: 80px 0;
   }
-
+  .desktop_off{
+    display: block;
+  }
   .menu li:hover {
     display: inline-block;
     background-color:#0d0d0d75;
@@ -427,6 +541,24 @@ ul.nav-links{
   .hamburger {
     display: block;
   }
+
+  .slides-container-klipy {
+    /*height: calc(100vh - 2rem); */
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    list-style: none;
+    margin-top: 80px;
+    padding: 0;
+    gap: 32px;
+    }
+    .mobile_off{
+      display: none;
+    }
+    
 /*
   .dropdown {
     left: 35%;
@@ -475,104 +607,13 @@ ul.nav-links{
 }
 .navbar{
   padding: 8px 24px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.90) 1%, rgba(0, 0, 0, 0.0) 100%);
 }
 .menu.background-white-mobile{
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 10%, rgba(255, 255, 255, 0.50)50%)
 }
 
 }
-
-
-/* CAROUSEL */
-  * {
-
-    box-sizing: border-box;
-  }
-
-  
-  .slider-wrapper {
-
-    position: relative;
-    overflow: hidden;
- 
-  }
-  
-  .slides-container {
-    /*height: calc(100vh - 2rem); */
-    height: fit-content;
-    width: 100%;
-    display: flex;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .slides-container {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-}
-/* WebKit */
-.slides-container::-webkit-scrollbar { 
-    width: 0;
-    height: 0;
-}
-  .slide-arrow {
-    position: absolute;
-    display: flex;
-    height: 100%;
-    background-color: #000;
-    border: none;
-    width: 32px;
-    font-size: 1rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    opacity: 0.45;
-    transition: opacity 100ms;
-  }
-  .arrow-hero{
-    width: 64px;
-
-  }
-  .slide-arrow:hover {
-    opacity: 0.75;
-  }
-  
-  #slide-arrow-prev {
-    left: 0;
-  
-    border-radius: 0 2px 2px 0;
-  }
-  
-  #slide-arrow-next {
-    right: 0;
-
-    border-radius: 2px 0 0 2px;
-  }
-  
-  .slide {
-    width: 100%;
-    height: 100%;
-    flex: 1 0 100%;
-  }
-  
-  
-  
-  footer {
-    padding: 1em;
-    text-align: center;
-    background-color: #FFDFB9;
-  }
-  
-  footer a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  footer .heart {
-    color: #DC143C;
-  }
-
 
  
 /*
