@@ -22,7 +22,7 @@ ul{
     align-items: center;
     gap: 16px;
     align-self: stretch;
-    background: url("herotest.jpg");
+    background: url("photosMP/herotest.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -187,7 +187,7 @@ iframe{
   align-items: center;
   gap: 16px;
   align-self: stretch;
-  background: url("herowedding.png");
+  background: url("/svatby/herowedding.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
